@@ -85,6 +85,7 @@ def relevant_resolvers(domain=None, include_universal=None, include_popups=None,
     classes = ResolveUrl.__class__.__subclasses__(ResolveUrl) + ResolveUrl.__class__.__subclasses__(ResolveGeneric)
     relevant = []
     for resolver in classes:
+        relevant.append(resolver)
         if include_disabled or resolver._is_enabled():
             if (include_universal or not resolver.isUniversal()) and (include_popups or not resolver.isPopup()):
                 if domain is None or ((domain and any(domain in res_domain.lower() for res_domain in resolver.domains)) or '*' in resolver.domains):

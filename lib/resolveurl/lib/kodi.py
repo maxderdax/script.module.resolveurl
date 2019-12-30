@@ -119,14 +119,6 @@ def get_keyboard_new(heading, default='', hide_input=False):
     return None
 
 
-if kodi_version() >= 13.0:
-
-    get_keyboard = get_keyboard_new
-
-else:
-
-    get_keyboard = get_keyboard_legacy
-
 
 def i18n(string_id):
     try:

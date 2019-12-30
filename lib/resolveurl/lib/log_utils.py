@@ -29,6 +29,7 @@ def execute_jsonrpc(command):
     return json.loads(response)
 
 def _is_debugging():
+    return False
     command = {'jsonrpc': '2.0', 'id': 1, 'method': 'Settings.getSettings', 'params': {'filter': {'section': 'system', 'category': 'logging'}}}
     js_data = execute_jsonrpc(command)
     for item in js_data.get('result', {}).get('settings', {}):
